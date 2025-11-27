@@ -1,5 +1,5 @@
 #heart-pattern {
-  background: url(../assets/heart.svg);
+  background: url(./assets/heart.svg);
   background-repeat: repeat;
   background-size: auto;
   position: fixed;

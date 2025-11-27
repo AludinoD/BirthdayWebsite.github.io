@@ -59,5 +59,5 @@ const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
 proceedBtn.addEventListener("click", () => {
-  window.location.href = "../pages/cake.html"; // change this to your next page
+  window.location.href = "../pages/cake.html";
 });
