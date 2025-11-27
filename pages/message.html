@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message</title>
+    <link rel="stylesheet" href="../stylesheets/message.css" />
+    <link rel="icon" type="image/png" href="../assets/msglogo.png" />
+  </head>
+  <body>
+    <div id="heart-pattern"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="cake.html" class="nav-logo">🎂 Birthday</a>
+        <ul class="nav-links">
+          <li><a href="cake.html">Cake</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="message.html" class="active">Message</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="message-section">
+      <h1 class="page-header">I Love You Mahal Ko</h1>
+      <div class="polaroid-container" id="polaroidContainer">
+        <div class="polaroid-front">Click me!</div>
+        <div class="polaroid-back">
+          <span id="polaroidText"></span>
+          <button id="visitGallery">Visit Gallery</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Confetti library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+
+    <script>
+      const container = document.getElementById("polaroidContainer");
+      const polaroidText = document.getElementById("polaroidText");
+      const visitBtn = document.getElementById("visitGallery");
+
+      const message =
+        "Happy Birthday! Wishing you a day full of love, joy, and unforgettable moments!";
+      let flipped = false;
+      let typed = false;
+
+      container.addEventListener("click", () => {
+        if (!flipped) {
+          container.classList.add("flipped");
+          flipped = true;
+          container.classList.remove("tilt");
+
+          confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+          });
+
+          let i = 0;
+          polaroidText.textContent = "";
+          const typeInterval = setInterval(() => {
+            polaroidText.textContent += message[i];
+            i++;
+            if (i >= message.length) {
+              clearInterval(typeInterval);
+              typed = true;
+            }
+          }, 50);
+        } else if (flipped && typed) {
+          container.classList.remove("flipped");
+          flipped = false;
+          typed = false;
+          polaroidText.textContent = "";
+        }
+      });
+
+      visitBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        window.location.href = "gallery.html";
+      });
+    </script>
+  </body>
+</html>
