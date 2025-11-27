@@ -33,31 +33,31 @@ function updateCountdown() {
   const diff = targetDate - now;
 
   if (diff <= 0) {
-    countdownEl.innerHTML = "00:00:00";
+    countdownEl.innerHTML = "00d : 00h : 00m : 00s";
 
-    // CONFETTI TRIGGER
     fireConfetti();
-
     proceedBtn.style.display = "inline-block";
     return clearInterval(countdownInterval);
   }
 
-  // Convert diff
+  // Calculate remaining time
+  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
   let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
   let minutes = Math.floor((diff / (1000 * 60)) % 60);
   let seconds = Math.floor((diff / 1000) % 60);
 
+  // Formatting
+  days = days.toString().padStart(2, "0");
   hours = hours.toString().padStart(2, "0");
   minutes = minutes.toString().padStart(2, "0");
   seconds = seconds.toString().padStart(2, "0");
 
-  countdownEl.innerHTML = `${hours}:${minutes}:${seconds}`;
+  countdownEl.innerHTML = `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
 }
 
 const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// Go to next page
 proceedBtn.addEventListener("click", () => {
-  window.location.href = "../pages/cake.html"; // change this
+  window.location.href = "../pages/cake.html"; // change this to your next page
 });
