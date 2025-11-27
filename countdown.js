@@ -1,5 +1,5 @@
 // Target date: November 30 Philippines (UTC+8)
-const targetDate = new Date("2025-11-30T00:00:00+08:00");
+const targetDate = new Date("2025-10-30T00:00:00+08:00");
 
 const countdownEl = document.getElementById("countdown");
 const proceedBtn = document.getElementById("proceedBtn");
