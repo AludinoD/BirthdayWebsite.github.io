@@ -127,18 +127,22 @@ body {
 .polaroid:nth-child(1),
 .polaroid:nth-child(4),
 .polaroid:nth-child(7),
+.polaroid:nth-child(18),
 .polaroid:nth-child(10) { transform: rotate(-4deg); }
 
 .polaroid:nth-child(2),
 .polaroid:nth-child(5),
 .polaroid:nth-child(8),
+.polaroid:nth-child(17),
 .polaroid:nth-child(11) { transform: rotate(4deg); }
 
 .polaroid:nth-child(3),
 .polaroid:nth-child(9),
+.polaroid:nth-child(15),
 .polaroid:nth-child(12) { transform: rotate(-7deg); }
 
 .polaroid:nth-child(6),
+.polaroid:nth-child(14),
 .polaroid:nth-child(13) { transform: rotate(2deg); }
 
 /* Hover zoom + straighten */
@@ -158,8 +162,17 @@ body {
     gap: 30px;
     animation: scroll2 25s linear infinite;
 }
+
+.track3 {
+    display: flex;
+    gap: 30px;
+    animation: scroll3 70s linear infinite;
+}
+
 .infinite-gallery:hover .track { animation-play-state: paused; }
 .infinite-gallery:hover .track2 { animation-play-state: paused; }
+.infinite-gallery:hover .track3 { animation-play-state: paused; }
+
 /* ===== ANIMATION ===== */
 @keyframes scroll {
     from { transform: translateX(0); }
@@ -169,4 +182,9 @@ body {
 @keyframes scroll2 {
     from { transform: translateX(-50%); }
     to   { transform: translateX(0%); }
+}
+
+@keyframes scroll3 {
+    from { transform: translateX(0%); }
+    to   { transform: translateX(-310%); }
 }
